@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a841ef97-8d2f-4f6b-9270-6e8ff6d3d9e6">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sila"/>
+	
+	<field name="keterangan" class="java.lang.String">
+		
+	</field>
+	<field name="lokasi_atm" class="java.lang.String">
+		
+	</field>
+	<field name="nama_pelapor" class="java.lang.String">
+		
+	</field>
+	<field name="status" class="java.lang.String">
+		
+	</field>
+	<field name="tanggal_kejadian" class="java.lang.String">
+		
+	</field>
+	<field name="id_kejadian" class="java.lang.Long">
+		
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="30" width="100" height="30" uuid="388b5462-6764-4291-b0c3-ac5df9cd9fef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7e8cb88-d0e7-40d0-b3c5-ae3f039a5c8f"/>
+				</reportElement>
+				<text><![CDATA[Nama Pelapor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="30" width="100" height="30" uuid="41d23ed5-516d-40c8-a996-a6dc74df149c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="987641f8-a4d4-4be6-ae05-56679f204f68"/>
+				</reportElement>
+				<text><![CDATA[Tanggal Kejadian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="30" width="100" height="30" uuid="a382eb1f-2736-49cf-a521-745407e49fe0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6e427a67-1640-4d07-a1d1-6d6c5a6c00d4"/>
+				</reportElement>
+				<text><![CDATA[Lokasi ATM]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="e9d75a7d-6e1a-4a5c-8cbb-3629246a161d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7e8cb88-d0e7-40d0-b3c5-ae3f039a5c8f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{namaPelapor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="d7d7ce6a-785b-4a48-855b-5aa93e037f69">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="987641f8-a4d4-4be6-ae05-56679f204f68"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{tanggalKejadian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="30" uuid="b1b49c94-ac57-46f0-a3ec-cabb89b3b755">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6e427a67-1640-4d07-a1d1-6d6c5a6c00d4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{lokasiAtm}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
