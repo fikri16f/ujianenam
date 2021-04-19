@@ -108,31 +108,35 @@ public class LaporanPage {
 	
 	@GetMapping("/laporan/print")
 	public String exportPDF() {
-		try {
-		File file = ResourceUtils.getFile("classpath:laporan1.jrxml");
-		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 		
-		List<Laporan> lstLaporan = modellaporan.getAllLaporan();
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(lstLaporan);
-        
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("createdBy","Juaracoding");
-        
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-        String path = "E://laporan.pdf";
-        JasperExportManager.exportReportToPdfFile(jasperPrint,path);
-        
-       
+		Print();
 		
-		}catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.getMessage());
-		}
-		return "redirect:/laporan/view";
-		
-		
-		
+		return "redirect:/laporan/view";	
 				
+	}
+	
+	
+	public void Print (){
+		try {
+			File file = ResourceUtils.getFile("classpath:laporan1.jrxml");
+			JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+			
+			List<Laporan> lstLaporan = modellaporan.getAllLaporan();
+	        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(lstLaporan);
+	        
+	        Map<String, Object> parameters = new HashMap<>();
+	        parameters.put("createdBy","Juaracoding");
+	        
+	        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+	        String path = "E://laporan1.pdf";
+	        JasperExportManager.exportReportToPdfFile(jasperPrint,path);
+	        
+	       
+			
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getMessage());
+			}
 	}
 	
 	

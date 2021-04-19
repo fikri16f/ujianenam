@@ -7,21 +7,18 @@
 	<field name="keterangan" class="java.lang.String">
 		
 	</field>
-	<field name="lokasi_atm" class="java.lang.String">
+	<field name="lokasiAtm" class="java.lang.String">
 		
 	</field>
-	<field name="nama_pelapor" class="java.lang.String">
+	<field name="namaPelapor" class="java.lang.String">
 		
 	</field>
 	<field name="status" class="java.lang.String">
 		
 	</field>
-	<field name="tanggal_kejadian" class="java.lang.String">
-		
+	<field name="tanggalKejadian" class="java.lang.String">
 	</field>
-	<field name="id_kejadian" class="java.lang.Long">
 		
-	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
