@@ -49,13 +49,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()
-           .antMatchers("/dashboard/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+           .antMatchers("/laporan/dashboard/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
            .antMatchers("/adminuser/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-           .antMatchers("/laporan/view/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+           .antMatchers("/laporan/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
            .antMatchers("/kejadian/**").access("hasRole('ROLE_ADMIN')").anyRequest().permitAll()
            .and()
        	.formLogin().loginPage("/login")
-       	.defaultSuccessUrl("/dashboard").permitAll()
+       	.defaultSuccessUrl("/laporan/dashboard/").permitAll()
        	.and()
       
        	.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/");

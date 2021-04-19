@@ -44,10 +44,6 @@
   <label for="formFile" class="form-label">Gambar Bukti</label>
   <input class="form-control" th:name="file" type="file" id="formFile" th:value="*{gambarBukti}">
 </div>
-<div class="mb-3">
-  <label for="nim" class="form-label">Status</label>
-  <input type="text" class="form-control" id="lokasiAtm" placeholder="lokasi ATM" th:field="*{status}">
-</div>
 <input type="hidden" th:field="*{idLaporan}">
 
  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />

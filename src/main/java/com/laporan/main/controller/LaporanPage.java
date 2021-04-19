@@ -41,22 +41,24 @@ public class LaporanPage {
 	@Autowired
 	ModelKejadian modelKejadian;
 	
-	@GetMapping("/laporan/view")
-	public String viewIndexLaporan(Model model) {
-		
-		model.addAttribute("listLaporan",modellaporan.getAllLaporan());
-		model.addAttribute("active",2);
-		
-		return "view_laporan";
-	}
-	
-//	@GetMapping("/laporan/dashboard")
-//	public String viewDashboard(Model model) {
-//		model.addAttribute("active",5);
-//				
+//	@GetMapping("/laporan/view")
+//	public String viewIndexLaporan(Model model) {
+//		
+//		model.addAttribute("listLaporan",modellaporan.getAllLaporan());
+//		model.addAttribute("active",2);
 //		
 //		return "view_laporan";
 //	}
+	
+	@GetMapping("/laporan/dashboard")
+	public String viewDashboard(Model model) {
+		model.addAttribute("active",5);
+		model.addAttribute("jmlLaporan", modellaporan.getAllLaporan().size());		
+		model.addAttribute("jmlTanggapi", modellaporan.getLaporanResponse().size());
+		model.addAttribute("jmlProses", modellaporan.getLaporanProses().size());
+		
+		return "dashboard";
+	}
 	
 	@GetMapping("/laporan/add")
 	public String viewAddLaporan(String id, Model model) {
@@ -77,31 +79,44 @@ public class LaporanPage {
 	        
 	        FileUtility.saveFile(uploadDir, fileName, file);
 	 
-       laporan.setGambarBukti("/"+uploadDir + fileName);
-        this.modellaporan.addLaporan(laporan);
+	        laporan.setGambarBukti("/"+ uploadDir + fileName);
+       
+	        this.modellaporan.addLaporan(laporan);
 
-		model.addAttribute("listlaporan",modellaporan.getAllLaporan());
+		// model.addAttribute("listlaporan",modellaporan.getAllLaporan());
 		
 		return "redirect:/laporan/view";
 	  }
 	}
+	@GetMapping("/laporan/view")
+	public String viewReport(Model model) {
+		model.addAttribute("active",2);
+		List<Laporan> laporan = modellaporan.getAllLaporan();
+		for (Laporan lapor : laporan) {
+			if(lapor.getStatus() == null) {
+				lapor.setStatus("Pending");
+			}
+		}
+		model.addAttribute("listLaporan", laporan);
+		return "view_laporan";
+	}
 	
 	@GetMapping("/laporan/approve/{id}")
-	public String ApproveLaporan(@PathVariable String id, Model model) {
+	public String ApproveLaporan(@PathVariable String id) {
 		
 		Laporan laporan = modellaporan.cariLaporan(id);
 		// buat penampung data MataKuliah di halaman htmlnya
-		laporan.setStatus("approve");
+		laporan.setStatus("Approve");
 		this.modellaporan.addLaporan(laporan);
 		return "redirect:/laporan/view";
 	}
 	
 	@GetMapping("/laporan/reject/{id}")
-	public String RejectLaporan(@PathVariable String id, Model model) {
+	public String RejectLaporan(@PathVariable String id) {
 		
 		Laporan laporan = modellaporan.cariLaporan(id);
 		// buat penampung data MataKuliah di halaman htmlnya
-		laporan.setStatus("reject");
+		laporan.setStatus("Reject");
 		this.modellaporan.addLaporan(laporan);
 		return "redirect:/laporan/view";
 	}

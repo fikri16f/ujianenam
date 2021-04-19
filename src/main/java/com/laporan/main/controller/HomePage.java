@@ -29,12 +29,12 @@ public class HomePage {
 		
 	}
 	
-	@GetMapping("/dashboard")
-	public String dashboardPage(Model model) {
-		
-
-		return "dashboard";
-		
-	}
+//	@GetMapping("/dashboard")
+//	public String dashboardPage(Model model) {
+//		
+//
+//		return "dashboard";
+//		
+//	}
 
 }

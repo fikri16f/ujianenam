@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a th:attr="class=${active == 0 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/dashboard/'}">Dashboard</a>  
+        <a th:attr="class=${active == 0 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/laporan/dashboard/'}">Dashboard</a>  
         <a th:attr="class=${active == 1 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/adminuser/view/'}">View Admin / User </a>
         <a th:attr="class=${active == 2 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/laporan/view/'}">Proses Laporan </a>
         <div sec:authorize="hasRole('ROLE_USER')">

@@ -39,4 +39,16 @@ public class ModelLaporan implements ModelLaporanInterface{
 		return this.laporanRepo.findById(Long.parseLong(id)).get();
 	}
 
+	@Override
+	public List<Laporan> getLaporanProses() {
+		// TODO Auto-generated method stub
+		return this.laporanRepo.findStatusNull();
+	}
+
+	@Override
+	public List<Laporan> getLaporanResponse() {
+		// TODO Auto-generated method stub
+		return this.laporanRepo.findStatusResponse();
+	}
+
 }
